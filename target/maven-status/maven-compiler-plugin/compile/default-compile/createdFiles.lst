@@ -1,3 +1,2 @@
-com/myapps/myapp1/MyAplication.class
-com/myapps/myapp1/MyController.class
-com/example/service/WebService.class
+com/example/dao/Redis_instance.class
+com/example/config/TestConfig.class

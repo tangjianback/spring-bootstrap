@@ -13,7 +13,7 @@ public class Student {
 
     }
     public Student(String sno, String name, String gender, String born_data, String born_place, String academy) {
-        Sno = sno;
+        this.Sno = sno;
         this.name = name;
         this.gender = gender;
         this.born_data = born_data;

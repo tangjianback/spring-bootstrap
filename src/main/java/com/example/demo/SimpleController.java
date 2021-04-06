@@ -2,13 +2,12 @@ package com.example.demo;
 
 import com.example.dao.Student;
 import com.example.service.WebService;
+import com.example.service.WebServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -20,16 +19,34 @@ public class SimpleController {
     @Value("${spring.application.name}")
     String appName;
 
-    static WebService webService = null;
+
+    static private WebServiceInterface webService;
     static {
         webService = new WebService();
     }
+
+
+//    @Autowired
+//    public void setWebService(WebServiceInterface webService) {
+//
+//        this.webService = webService;
+//    }
+
+
+
+
  
 //    @GetMapping("/")
 //    public String homePage(Model model) {
 //        model.addAttribute("appName", appName);
 //        return "home";
 //    }
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public String test(Model model) {
+
+        webService.my_test();
+        return "index";
+    }
     @GetMapping("/")
     public String indexPage(Model model) {
         //model.addAttribute("appName", appName);
@@ -91,6 +108,7 @@ public class SimpleController {
         model.addAttribute("returnmessage",returnmessage);
         return "index";
     }
+
     @PostMapping("/myindex4.html")
     public String getstudent(@RequestParam Map parameters,Model model) {
         String returnmessage;
