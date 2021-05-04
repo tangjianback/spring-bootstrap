@@ -64,9 +64,10 @@ public class WebService implements WebServiceInterface{
         return mydatadeal.edit_student(s);
     }
     // 查询一个学生的信息
+    public Student get_student(Student s){return mydatadeal.get_student(s);}
+    // 查询一个学生的信息(redis版本)
     @Cacheable(value = "employees")
-    @Override
-    public Student get_student(Student s){
+    public Student get_student_s(Student s){
         //return mydatadeal.get_student(s);
 
         // 获得核心对象：jedis
@@ -101,8 +102,6 @@ public class WebService implements WebServiceInterface{
 
         }
         return  retuen_s;
-
-
     }
     @Override
     @Cacheable(value = "employees1")

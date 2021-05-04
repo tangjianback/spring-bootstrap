@@ -1,2 +1,3 @@
 com/example/dao/Redis_instance.class
+com/example/batch/Excel.class
 com/example/config/TestConfig.class

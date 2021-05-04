@@ -12,7 +12,7 @@
     <div>
         <div>
         <!--        增加-->
-        <form action="myindex1.html" method="post">
+        <form action="User" method="post">
             学号<input type="text" name="Sno" value=""><br>
             姓名<input type="text" name="name" ><br>
             性别<input type="text" name="gender" ><br>
@@ -23,8 +23,8 @@
         </form>
         </div>
         <div>
-            <!--        增加-->
-            <form action="myindex2.html" method="post">
+            <!--        删除-->
+            <form action="User" method="delete">
                 学号<input type="text" name="Sno" ><br>
                 姓名<input type="text" name="name" ><br>
                 性别<input type="text" name="gender" ><br>
@@ -35,8 +35,8 @@
             </form>
         </div>
         <div>
-            <!--        增加-->
-            <form action="myindex3.html" method="post">
+            <!--        修改-->
+            <form action="User" method="put">
                 学号<input type="text" name="Sno" ><br>
                 姓名<input type="text" name="name" ><br>
                 性别<input type="text" name="gender" ><br>
@@ -47,8 +47,8 @@
             </form>
         </div>
         <div>
-            <!--        增加-->
-            <form action="myindex4.html" method="post">
+            <!--        查询-->
+            <form action="User" method="get">
                 学号<input type="text" name="Sno" th:value="${student?.Sno}"><br>
                 姓名<input type="text" name="name" th:value="${student?.name}"><br>
                 性别<input type="text" name="gender" th:value="${student?.gender}"><br>

@@ -19,34 +19,16 @@ public class SimpleController {
     @Value("${spring.application.name}")
     String appName;
 
-
     static private WebServiceInterface webService;
     static {
         webService = new WebService();
     }
-
-
-//    @Autowired
-//    public void setWebService(WebServiceInterface webService) {
-//
-//        this.webService = webService;
-//    }
-
-
-
-
- 
-//    @GetMapping("/")
-//    public String homePage(Model model) {
-//        model.addAttribute("appName", appName);
-//        return "home";
-//    }
-    @RequestMapping(value = "test", method = RequestMethod.GET)
+    @RequestMapping(value = "test", method = RequestMethod.DELETE)
     public String test(Model model) {
 
-        webService.my_test();
-        return "index";
+        return "home";
     }
+
     @GetMapping("/")
     public String indexPage(Model model) {
         //model.addAttribute("appName", appName);
@@ -54,7 +36,9 @@ public class SimpleController {
         //model.addAttribute("student",s);
         return "index";
     }
-    @PostMapping("/myindex1.html")
+
+    // 新建一个学生
+    @PostMapping("/User")
     public String addstudent(@RequestParam Map parameters,Model model) {
         String returnmessage ;
         System.out.println(parameters);
@@ -72,7 +56,9 @@ public class SimpleController {
         model.addAttribute("returnmessage",returnmessage);
         return "index";
     }
-    @PostMapping("/myindex2.html")
+
+    // 删除一个学生
+    @DeleteMapping("/User")
     public String deletestudent(@RequestParam Map parameters,Model model) {
         String returnmessage ;
         System.out.println(parameters);
@@ -90,7 +76,9 @@ public class SimpleController {
         model.addAttribute("returnmessage",returnmessage);
         return "index";
     }
-    @PostMapping("/myindex3.html")
+
+    // 更新一个用户
+    @PutMapping("/User")
     public String editstudent(@RequestParam Map parameters,Model model) {
         String returnmessage ;
         System.out.println(parameters);
@@ -109,7 +97,7 @@ public class SimpleController {
         return "index";
     }
 
-    @PostMapping("/myindex4.html")
+    @GetMapping("/User")
     public String getstudent(@RequestParam Map parameters,Model model) {
         String returnmessage;
         System.out.println(parameters);
